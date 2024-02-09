@@ -1,6 +1,8 @@
 import createApiRoot from '@/service/api/client/createApiRoot';
 import { ApiService } from '@/service/api/ApiService';
 import { SessionDataStorage } from '@/controller/session/server';
+import SessionTokenCache from './client/token-storage';
+import ServerSessionDataStorage from '@/controller/session/server/ServerSessionDataStorage';
 
 export type UserCredentials = { username: string; password: string };
 
@@ -92,6 +94,27 @@ interface RemoveAddressCustomer {
 
 export default class CustomerService extends ApiService {
   public async login(credentials: UserCredentials) {
+    const apiRoot = createApiRoot();
+    const res = await apiRoot
+      .me()
+      .login()
+      .post({
+        body: {
+          email: credentials.username,
+          password: credentials.password,
+          activeCartSignInMode: 'MergeWithExistingCustomerCart',
+        },
+      })
+      .execute();
+    const storage = new ServerSessionDataStorage();
+    const session = storage.getData();
+    session.customerId = res.body.customer.id;
+    storage.save(session);
+    this.apiRoot = createApiRoot(credentials);
+    return this.getCurrentCustomer();
+  }
+
+  public async loginAfterRegistration(credentials: UserCredentials) {
     this.apiRoot = createApiRoot(credentials);
     return this.getCurrentCustomer();
   }
@@ -140,8 +163,8 @@ export default class CustomerService extends ApiService {
     if (formBillingAddress.defaultBillingAddress) {
       customerDraft.defaultBillingAddress = 1;
     }
-
-    const result = await this.apiRoot.me().signup().post({ body: customerDraft }).execute();
+    const apiRoot = createApiRoot();
+    const result = await apiRoot.me().signup().post({ body: customerDraft }).execute();
     return result.body;
   }
 

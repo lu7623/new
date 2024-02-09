@@ -6,7 +6,7 @@ jest.mock('next/navigation', () => ({ useRouter: jest.fn().mockReturnValue('') }
 afterEach(cleanup);
 
 it('Navbar changes after click', () => {
-  render(<Navbar authorized={true} />);
+  render(<Navbar authorized={true} qty={3} />);
 
   const buttonMenu = screen.getByAltText('menu');
   expect(screen.getByTestId('nav')).toHaveClass('hidden');

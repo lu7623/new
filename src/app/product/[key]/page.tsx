@@ -1,18 +1,20 @@
-import CatalogService from '@/service/api/CatalogService';
 import { DrawAttributes } from './components/DrawAttributes';
 import { ProductNavBar } from './components/ProductNavBar';
 import Slider from './components/Slider';
 import { getProductByKey } from './components/product-functions';
+import AddToCartBtn from '@/app/catalog/components/addToCartBtn';
+import CartService from '@/service/api/CartService';
 
 export default async function Page({ params }: { params: { key: string } }) {
   const res = await getProductByKey(params.key);
   const product = res?.product;
   if (!product) return <div>Getting product fails</div>;
   const productName = product.name['en-US'];
+  const productID = product.id;
   const productDesc = product.description ? product.description['en-US'] : 'Not created';
   const masterVarImgs = product.masterVariant.images
     ? product.masterVariant.images.map((item) => item.url)
-    : ['https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'];
+    : ['/no-image.png'];
   const masterVarAttrs = product.masterVariant.attributes;
   const masterVarSKU = product.masterVariant.sku || 'Not created';
   const discount = res?.discount;
@@ -20,6 +22,9 @@ export default async function Page({ params }: { params: { key: string } }) {
     ? product.masterVariant.prices[0].value.centAmount / 100
     : 'Priceless';
   const discountPrice = discount ? discount / 100 : undefined;
+
+  const cart = new CartService().getActiveCart();
+  const lineItemKey = (await cart).lineItems?.find((p) => p.productKey === params.key);
 
   return (
     <>
@@ -46,9 +51,7 @@ export default async function Page({ params }: { params: { key: string } }) {
               <span className=" font-bold text-emerald-800">Price:</span> {masterVarPrices}$
             </p>
           )}
-          <button className="border border-solid border-transparent rounded mt-3 bg-emerald-900 text-white cursor-pointer py-1 px-3">
-            Add to cart
-          </button>
+          <AddToCartBtn inCart={lineItemKey ? lineItemKey.quantity : 0} itemId={product.id} />
         </div>
       </section>
       <ProductNavBar />

@@ -1,10 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomerInfo } from './CustomerInfo';
-import { expectedData } from '../../account-action.test';
 import { IMyCustomer } from '@/service/api/CustomerService';
-
-jest.mock('next/navigation', () => ({ useRouter: jest.fn().mockReturnValue('') }));
 
 export const noBillingAddress: IMyCustomer = {
   email: 'test@test.com',
@@ -32,7 +29,6 @@ export const noBillingAddress: IMyCustomer = {
   shippingAddressIds: ['1', '2'],
   billingAddressIds: [],
 };
-
 export const noShippingAddress: IMyCustomer = {
   email: 'test@test.com',
   password: '123456qQ',
@@ -59,6 +55,34 @@ export const noShippingAddress: IMyCustomer = {
   shippingAddressIds: [],
   billingAddressIds: ['1', '2'],
 };
+const expectedData = {
+  email: 'test@test.com',
+  password: '123456qQ',
+  firstName: 'Lena',
+  lastName: 'Tom',
+  dateOfBirth: '1990-01-01',
+  version: 1,
+  addresses: [
+    {
+      id: '1',
+      streetName: 'Baker st',
+      city: 'London',
+      postalCode: '12345',
+      country: 'England',
+    },
+    {
+      id: '2',
+      streetName: 'St',
+      city: 'Paris',
+      postalCode: '12345',
+      country: 'Franc',
+    },
+  ],
+  shippingAddressIds: ['1'],
+  billingAddressIds: ['2'],
+};
+
+jest.mock('next/navigation', () => ({ useRouter: jest.fn().mockReturnValue('') }));
 
 describe('CustomerInfo', () => {
   afterEach(() => {

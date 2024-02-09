@@ -25,7 +25,6 @@ export default function AddressSectionAccount({
   addressType,
   handleSubmitChangeAddress,
   deleteAddress,
-  onUpdate,
 }: IShippingAddressProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,6 +58,7 @@ export default function AddressSectionAccount({
                 handleSubmit={handleSubmitChangeAddress('changeAddress', `setDefault${addressType}Address`, addresses)}
               >
                 <AddressSection
+                  addressType={addressType}
                   formShippingAddress={addresses}
                   onUpdate={(address: IMyAddress, isDefault: boolean) => {
                     const newState = { ...address, [`default${addressType}Address`]: isDefault };
@@ -69,7 +69,7 @@ export default function AddressSectionAccount({
               </Wrapper>
               <button
                 type="button"
-                className="absolute right-[70px]"
+                className="absolute xl:right-[300px] lg:right-[220px] md:right-[70px] min-[300px]:right-[70px]"
                 onClick={deleteAddress('removeAddress', addresses)}
               >
                 {<FaTrash style={{ color: '#276339' }} title="Delete" />}

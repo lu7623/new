@@ -8,11 +8,12 @@ import Label from '../../elements/wrapper';
 import { IMyAddress } from '@/service/api/CustomerService';
 
 interface IShippingAddressProps {
+  addressType: string;
   formShippingAddress: IMyAddress;
   onUpdate: (address: IMyAddress, isDefault: boolean) => void;
 }
 
-export default function AddressSection({ formShippingAddress, onUpdate }: IShippingAddressProps) {
+export default function AddressSection({ addressType, formShippingAddress, onUpdate }: IShippingAddressProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   const [address, setAddress] = useState(formShippingAddress);
@@ -24,7 +25,7 @@ export default function AddressSection({ formShippingAddress, onUpdate }: IShipp
 
   return (
     <div className="adress-field mt-14">
-      <h3 className="ml-2.5 lg:text-lg sm:text-base">Fill in the address fields</h3>
+      <h3 className="ml-2.5 lg:text-lg sm:text-base">Fill in the address fields for {addressType} address</h3>
       <div>
         <Label label="Street">
           <StreetValid

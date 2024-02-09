@@ -52,6 +52,7 @@ export default function AddAddress({ addressType, handleSubmitAddAddress, onUpda
               >
                 {addressType === 'Shipping' ? (
                   <AddressSection
+                    addressType="Shipping"
                     formShippingAddress={addresses}
                     onUpdate={(address: IMyAddress, isDefault: boolean) => {
                       const newState = { ...address, defaultShippingAddress: isDefault };
@@ -61,6 +62,7 @@ export default function AddAddress({ addressType, handleSubmitAddAddress, onUpda
                   />
                 ) : (
                   <AddressSection
+                    addressType="Billing"
                     formShippingAddress={addresses}
                     onUpdate={(address: IMyAddress, isDefault: boolean) => {
                       const newState = { ...address, defaultBillingAddress: isDefault };

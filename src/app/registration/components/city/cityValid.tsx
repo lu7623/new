@@ -1,12 +1,10 @@
 'use client';
 
-import { IMyAddress } from '@/service/api/CustomerService';
 import style from '../../page.module.css';
 import React, { useState } from 'react';
 
 interface CityProps {
   city?: string;
-  // setFormData: React.Dispatch<React.SetStateAction<IMyAddress>>;
   onUpdate: (street: string) => void;
 }
 
@@ -22,12 +20,6 @@ export default function CityValid({ city, onUpdate }: CityProps) {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value.trim();
     setCityState(value);
-    // setFormData(
-    //   (prevState): IMyAddress => ({
-    //     ...prevState,
-    //     city: value,
-    //   })
-    // );
     if (!value) {
       setError('');
       return;

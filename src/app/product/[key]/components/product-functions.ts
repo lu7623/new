@@ -1,7 +1,7 @@
 import CatalogService from '@/service/api/CatalogService';
 import { ProductProjection } from '@commercetools/platform-sdk';
 
-export async function getProductById(id: string){
+export async function getProductById(id: string) {
   const catalogService = new CatalogService();
   const product = await catalogService.getProductObjById(id);
   const discount = await catalogService.getDiscoutProductById(id);

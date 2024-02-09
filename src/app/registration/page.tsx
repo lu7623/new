@@ -7,7 +7,7 @@ import PasswordValid from './components/password/passwordValid';
 import FirstNameValid from './components/firstName/firstNameValid';
 import LastNameValid from './components/lastName/lastNameValid';
 import DataOfBirthValid from './components/dataOfBirth/dataOfBirthValid';
-import { autoLogin, register } from './register-actions';
+import { register } from './register-actions';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import AddressSection from './components/addresses/addressSection';
@@ -108,7 +108,6 @@ export default function Page() {
     if (formValid) {
       await register(formData, shippingAddress, billingAddress)
         .then(() => {
-          autoLogin(formData.email, formData.password);
           setRegSuccess(true);
           setMsgVisible(true);
         })
@@ -167,6 +166,7 @@ export default function Page() {
               </div>
             </div>
             <AddressSection
+              addressType="Shipping"
               formShippingAddress={formShippingAddress}
               onUpdate={(address: IMyAddress, isDefault: boolean) => {
                 const newState = { ...address, defaultShippingAddress: isDefault };
@@ -176,6 +176,7 @@ export default function Page() {
             <CheckboxAddress label="Use for Billing address" checked={isChecked} onChange={handleCheckboxChange} />
             {!isChecked && (
               <AddressSection
+                addressType="Billing"
                 formShippingAddress={formBillingAddress}
                 onUpdate={(address: IMyAddress, isDefault: boolean) => {
                   const newState = { ...address, defaultBillingAddress: isDefault };

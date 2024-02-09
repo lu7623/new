@@ -1,9 +1,12 @@
 import RootLayout from './layout';
 import { render } from '@testing-library/react';
+import CartService from '@/service/api/CartService';
+import { CustomerService } from '@/service/api';
 
 jest.mock('next/navigation', () => ({ useRouter: jest.fn().mockReturnValue('') }));
 
-jest.mock('@/service/api');
+jest.mock('@/service/api/CartService');
+jest.mock('@/service/api/CustomerService');
 
 describe('Root layout', () => {
   it('renders a page with correct layout', () => {

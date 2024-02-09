@@ -9,6 +9,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'static.tildacdn.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'thumb.tildacdn.com',
+      },
     ],
   },
 };

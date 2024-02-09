@@ -2,7 +2,6 @@
 
 import style from '../../page.module.css';
 import React, { useState } from 'react';
-import Label from '../../elements/wrapper';
 
 interface EmailProps {
   email: string;
@@ -15,12 +14,6 @@ export default function EmailValid({ email, setEmail }: EmailProps) {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value.trim();
     setEmail(value);
-    // setFormData(
-    //   (prevState): DataObject => ({
-    //     ...prevState,
-    //     email: value,
-    //   })
-    // );
     if (!value) {
       setError('');
       return;

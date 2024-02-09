@@ -8,6 +8,7 @@ module.exports = {
     '!<rootDir>/out/**',
     '!<rootDir>/.next/**',
     '!<rootDir>/*.config.js',
+    '!<rootDir>/*.lintstagedrc.js',
     '!<rootDir>/*.config.ts',
     '!<rootDir>/coverage/**',
   ],

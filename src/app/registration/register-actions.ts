@@ -10,18 +10,14 @@ export const register = async (
   formBillingAddress: IAddress
 ) => {
   const customerService = new CustomerService();
-  await customerService.register(formData, formShippingAddress, formBillingAddress);
-};
-
-export const autoLogin = async (email: string, password: string) => {
-  const credentials: UserCredentials = {
-    username: email,
-    password: password,
-  };
-  const customerService = new CustomerService();
-  const customer = await customerService.login(credentials);
+  const res = await customerService.register(formData, formShippingAddress, formBillingAddress);
   const sessionStorage = new SessionDataStorage();
   const session = sessionStorage.getData();
-  session.customerId = customer.id;
+  session.customerId = res.customer.id;
   sessionStorage.save(session);
+  const credentials: UserCredentials = {
+    username: formData.email,
+    password: formData.password,
+  };
+  await customerService.loginAfterRegistration(credentials);
 };

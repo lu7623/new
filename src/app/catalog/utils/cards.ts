@@ -1,7 +1,7 @@
 import { ProductCard } from '@/service/api/CatalogService';
-import { ProductProjection } from '@commercetools/platform-sdk';
+import { LineItem, ProductProjection } from '@commercetools/platform-sdk';
 
-export function cardsInfo(prods: ProductProjection[], discounted: ProductProjection[]) {
+export function cardsInfo(prods: ProductProjection[], discounted: ProductProjection[], productsInCart: LineItem[]) {
   return prods.map((p) => {
     const product: ProductCard = {
       name: p.name['en-US'],
@@ -11,6 +11,10 @@ export function cardsInfo(prods: ProductProjection[], discounted: ProductProject
       description: p.description ? p.description['en-US'] : undefined,
       ID: p.id,
       key: p.key,
+      inCart:
+        productsInCart && productsInCart.find((d) => d.productId === p.id)?.quantity
+          ? productsInCart.find((d) => d.productId === p.id)?.quantity
+          : 0,
     };
     return product;
   });

@@ -5,7 +5,7 @@ export default function Border({ title, children }: { title: string; children: R
   return (
     <>
       <div className={`${style.borderItem}`}>
-        <h2 className={`${style.borderTitle} lg:text-2xl md:text-xl sm:text-base`}>{title}</h2>
+        <h2 className={`${style.borderTitle} lg:text-xl md:text-lg sm:text-base font-serif`}>{title}</h2>
         {children}
       </div>
     </>

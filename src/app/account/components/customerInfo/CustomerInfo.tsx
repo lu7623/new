@@ -91,7 +91,7 @@ export function CustomerInfo({ customer: currentCustomer }: CustomerInfoProps) {
       event.preventDefault();
       try {
         const newCustomer = await updateUserField(customer, fieldname, action, value);
-        processResult('Field is update!', newCustomer, true, undefined);
+        processResult('Field updated!', newCustomer, true, undefined);
       } catch {
         processResult('Oops... Try again, please!', undefined, undefined, true);
       }
@@ -103,7 +103,7 @@ export function CustomerInfo({ customer: currentCustomer }: CustomerInfoProps) {
       event.preventDefault();
       try {
         const newCustomer = await updateEmail(customer, action, value);
-        processResult('Field is update!', newCustomer, true, undefined);
+        processResult('Field updated!', newCustomer, true, undefined);
       } catch {
         processResult('Oops... Try again, please!', undefined, undefined, true);
       }
@@ -117,9 +117,9 @@ export function CustomerInfo({ customer: currentCustomer }: CustomerInfoProps) {
         const addCustomer = await updateAddressField(customer, action, address);
         if (defaultShipping === true && addCustomer) {
           const newCustomer = await removeSetAddress(addCustomer, actionRemove, address);
-          processResult('Address is update!', newCustomer, true, undefined);
+          processResult('Address updated!', newCustomer, true, undefined);
         }
-        processResult('Address is update!', addCustomer, true, undefined);
+        processResult('Address updated!', addCustomer, true, undefined);
       } catch {
         processResult('Oops... Try again, please!', undefined, undefined, true);
       }
@@ -153,7 +153,7 @@ export function CustomerInfo({ customer: currentCustomer }: CustomerInfoProps) {
             actionRemove,
             addCustomer.addresses[addCustomer.addresses.length - 1]
           );
-          processResult('Field is update!', newCustomer, true, undefined);
+          processResult('Field updated!', newCustomer, true, undefined);
         }
       } catch {
         processResult('Oops... Try again, please!', undefined, undefined, true);
@@ -173,10 +173,10 @@ export function CustomerInfo({ customer: currentCustomer }: CustomerInfoProps) {
           const newCustomer = await updatePassword(customer, newpassword, oldpassword);
           logout();
           await login(customer.email, newpassword);
-          processResult('Password is update!', newCustomer, true, undefined);
+          processResult('Password updated!', newCustomer, true, undefined);
         }
       } catch (err) {
-        processResult('Password didnt update!', undefined, undefined, true);
+        processResult('Password has not been updated!', undefined, undefined, true);
       }
     };
   };

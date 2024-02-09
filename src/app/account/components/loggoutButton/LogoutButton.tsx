@@ -7,6 +7,7 @@ import { logout } from '../../account-actions';
 export function LogoutButton() {
   const router = useRouter();
   function handleLogout() {
+    localStorage.removeItem('promocode');
     logout();
     router.refresh();
     router.push('/login');

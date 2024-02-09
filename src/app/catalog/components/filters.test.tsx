@@ -17,7 +17,7 @@ jest.mock('next/navigation', () => ({
   }),
 }));
 
-const products: ProductProjection[] = [
+export const products: ProductProjection[] = [
   {
     id: '113496b7-5958-4130-8f32-b803059297da',
     version: 1,

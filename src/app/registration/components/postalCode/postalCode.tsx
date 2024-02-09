@@ -1,13 +1,11 @@
 'use client';
 
-import { IMyAddress } from '@/service/api/CustomerService';
 import style from '../../page.module.css';
 import React, { useState } from 'react';
 
 interface PostalCodeProps {
   country: string;
   postalCode?: string;
-  // setFormData: React.Dispatch<React.SetStateAction<IMyAddress>>;
   onUpdate: (street: string) => void;
 }
 
@@ -24,10 +22,6 @@ export default function PostalCode({ country, postalCode, onUpdate }: PostalCode
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value.trim();
     setPostalCode(value);
-    // setFormData((prevState) => ({
-    //   ...prevState,
-    //   postalCode: value,
-    // }));
     if (!value) {
       setError('');
       return;

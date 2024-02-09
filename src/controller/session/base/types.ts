@@ -4,4 +4,5 @@ export default interface SessionData {
   token?: TokenStore;
   anonymousId?: string;
   customerId?: string;
+  qty?: number;
 }

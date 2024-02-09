@@ -9,7 +9,7 @@ import SearchPanel from './searchPanel';
 import { Category } from '@commercetools/platform-sdk';
 import { categoriesList } from '../utils/categories';
 
-const catList1: Category[] = [
+export const catList1: Category[] = [
   {
     id: '85db2e2f-b2bf-491f-a87a-48e446c6a73c',
     version: 2,

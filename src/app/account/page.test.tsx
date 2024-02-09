@@ -3,6 +3,7 @@ import Page from './page';
 import { getUserInfo, userIsLogged } from './account-actions';
 import { CustomerInfo } from './components/customerInfo/CustomerInfo';
 import { LogoutButton } from './components/loggoutButton/LogoutButton';
+import CartService from '@/service/api/CartService';
 
 jest.mock('./components/loggoutButton/LogoutButton.tsx');
 jest.mock('./components/customerInfo/CustomerInfo.tsx');
@@ -36,6 +37,19 @@ jest.mock('./account-actions', () => ({
     authenticationMode: 'ExternalAuth',
   }),
 }));
+const mockGetAllCarts = jest.fn().mockReturnValue({
+  results: [
+    { id: '1111', lineItems: ['string1', 'string2'] },
+    { id: '2222', lineItems: ['string3', 'string4'] },
+  ],
+});
+jest.mock('@/service/api/CartService', () => {
+  return jest.fn().mockImplementation(() => {
+    return {
+      getAllCarts: mockGetAllCarts,
+    };
+  });
+});
 
 describe('Account page', () => {
   it('renders header', async () => {

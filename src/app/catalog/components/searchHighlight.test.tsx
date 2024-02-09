@@ -11,6 +11,7 @@ const arr: ProductCard[] = [
   {
     name: 'Frame with pressed fern',
     ID: '1',
+    key: 'fern-frame',
   },
 ];
 

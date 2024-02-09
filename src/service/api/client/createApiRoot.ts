@@ -22,7 +22,7 @@ const createApiRoot = function (userCredentials?: UserAuthOptions) {
       tokenCache,
     });
   } else {
-    builder = builder.withClientCredentialsFlow({
+    builder = builder.withAnonymousSessionFlow({
       host: authHost,
       projectKey,
       credentials: {

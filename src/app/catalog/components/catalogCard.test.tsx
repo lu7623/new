@@ -8,6 +8,7 @@ const pr: ProductCard = {
   mainImage: 'https://thumb.tildacdn.com/stor3132-3434-4061-b262-373130363730/-/format/webp/44175482.jpg',
   price: 1700,
   ID: 'someID',
+  key: '1',
 };
 
 const pr2: ProductCard = {
@@ -16,6 +17,7 @@ const pr2: ProductCard = {
   price: 2500,
   discountedPrice: 2250,
   ID: 'someID',
+  key: '2',
 };
 
 describe('Catalog card', () => {
