@@ -1,6 +1,6 @@
 # eCommerce Application
 
-Final group project for RS School
+## Sadly Commerce Tools CMS now blocks access from Russia and prevent new trial period attempts. So working with products and user authorization services in app deployment is not avaliable now
 
 ## About
 
