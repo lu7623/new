@@ -94,24 +94,12 @@ interface RemoveAddressCustomer {
 
 export default class CustomerService extends ApiService {
   public async login(credentials: UserCredentials) {
-    const apiRoot = createApiRoot();
-    const res = await apiRoot
-      .me()
-      .login()
-      .post({
-        body: {
-          email: credentials.username,
-          password: credentials.password,
-          activeCartSignInMode: 'MergeWithExistingCustomerCart',
-        },
-      })
-      .execute();
-    const storage = new ServerSessionDataStorage();
-    const session = storage.getData();
-    session.customerId = res.body.customer.id;
-    storage.save(session);
-    this.apiRoot = createApiRoot(credentials);
-    return this.getCurrentCustomer();
+    const response = await fetch('http://localhost:3000/api/authUser', {
+      method: 'POST',
+      body: JSON.stringify(credentials),
+    });
+    let res = await response.json();
+    return res;
   }
 
   public async loginAfterRegistration(credentials: UserCredentials) {

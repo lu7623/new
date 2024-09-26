@@ -1,3 +1,4 @@
+import { ProductResponse, ProductResponseData } from '@/app/api/types';
 import { ApiService } from '@/service/api/ApiService';
 
 export const PRODUCTS_MAX_COUNT = 100;
@@ -21,11 +22,47 @@ export type Filters = {
   priceTo?: number;
 };
 
-export enum SortParams {
-  nameASC = 'name.en-us asc',
-  nameDESC = 'name.en-us desc',
-  priceASC = 'price asc',
-  priceDESC = 'price desc',
+export type SortParams = 'nameASC' | 'nameDESC' | 'priceASC' | 'priceDESC';
+
+function sortHelper(sortParam: SortParams, item1: ProductResponse, item2: ProductResponse) {
+  if (sortParam === 'nameASC') {
+    if (item1.name > item2.name) {
+      return -1;
+    } else if (item1.name < item2.name) {
+      return 1;
+    }
+    return 0;
+  } else if (sortParam === 'nameDESC') {
+    if (item1.name < item2.name) {
+      return -1;
+    } else if (item1.name > item2.name) {
+      return 1;
+    }
+    return 0;
+  } else if (sortParam === 'priceASC') {
+    if (item1.price > item2.price) {
+      return -1;
+    } else if (item1.price < item2.price) {
+      return 1;
+    }
+    return 0;
+  } else if (sortParam === 'priceDESC') {
+    if (item1.price < item2.price) {
+      return -1;
+    } else if (item1.price > item2.price) {
+      return 1;
+    }
+    return 0;
+  }
+}
+
+function filtersHelper(filtersApplied: Filters, item: ProductResponse) {
+  return (
+    (filtersApplied.catID && item.category === filtersApplied.catID) ||
+    (filtersApplied.color && item.glassColor === filtersApplied.color) ||
+    (filtersApplied.priceFrom && item.price >= filtersApplied.priceFrom) ||
+    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo)
+  );
 }
 export default class CatalogService extends ApiService {
   public async getCategoriesArr() {

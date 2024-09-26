@@ -1,17 +1,9 @@
 import Link from 'next/link';
 import { Promocodes } from './promocodes';
 
-export default async function Home() {
-  const response = await fetch('http://localhost:3000/api/authUser', {
-    method: 'POST',
-    body: JSON.stringify({ username: 'admin', password: 'admin' }),
-  });
-  let res = await response.json();
-  console.log(res);
-
+export default function Home() {
   return (
     <main className="font-serif flex flex-col items-center w-full">
-      <p>{JSON.stringify(res)}</p>
       <div
         style={{
           backgroundImage: `url("https://static.tildacdn.com/stor3363-3533-4231-b833-663035623631/27288658.jpg")`,
