@@ -2,7 +2,10 @@ import Link from 'next/link';
 import { Promocodes } from './promocodes';
 
 export default async function Home() {
-  const response = await fetch('http://localhost:3000/api/getProducts');
+  const response = await fetch('http://localhost:3000/api/authUser', {
+    method: 'POST',
+    body: JSON.stringify({ username: 'admin', password: 'admin' }),
+  });
   let res = await response.json();
   console.log(res);
 
