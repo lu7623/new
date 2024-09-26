@@ -1,0 +1,174 @@
+[
+  {
+    "name": "Clover suncatcher",
+    "images": [
+      "https://thumb.tildacdn.com/stor3132-3434-4061-b262-373130363730/-/format/webp/44175482.jpg",
+      "https://thumb.tildacdn.com/stor3539-3434-4233-a563-396133646536/-/format/webp/17064428.jpg",
+      "https://thumb.tildacdn.com/stor6165-6566-4834-a135-393036633236/-/format/webp/89839665.jpg"
+    ],
+    "price": 2500,
+    "discountedPrice": 1500,
+    "description": "Lucky clover hanging made of light-green glass",
+    "ID": "clover",
+    "key": "clover",
+    "category": "suncatchers",
+    "slug": "clover",
+    "glass-color": "green",
+    "measures": "12x10cm",
+    "materials": "glass, tin solder, copper foil, crystal beads"
+  },
+  {
+    "name": "Fern wall hanging",
+    "images": [
+      "https://thumb.tildacdn.com/stor6261-3238-4131-a264-636435623135/-/format/webp/85602894.jpg",
+      "https://static.tildacdn.com/stor3334-3531-4634-b833-346662646261/93147844.jpg",
+      "https://static.tildacdn.com/stor3665-3738-4763-a663-373239633739/55676346.jpg"
+    ],
+    "price": 6000,
+
+    "description": "Fern leaf wall hanging made of textured glass",
+    "ID": "fern",
+    "key": "fern",
+    "category": "panels",
+    "slug": "fern",
+    "glass-color": "green",
+    "measures": "25x18cm",
+    "materials": "glass, tin solder, copper foil"
+  },
+  {
+    "name": "Poppy wall hanging",
+    "images": [
+      "https://static.tildacdn.com/stor3630-3734-4837-b939-323837313532/74045217.jpg",
+      "https://static.tildacdn.com/stor3461-3638-4435-a462-626439633634/82950219.jpg",
+      "https://static.tildacdn.com/stor3566-6532-4663-a536-653366616363/73709674.jpg"
+    ],
+    "price": 4000,
+    "description": "Large poppy flower wall hanging with natural labrador stone",
+    "ID": "poppy",
+    "key": "poppy",
+    "category": "panels",
+    "slug": "poppy",
+    "glass-color": "red",
+    "measures": "22x16cm",
+    "materials": "glass, tin solder, copper foil, labradorite"
+  },
+  {
+    "name": "Honeycomb wall hanging",
+    "images": [
+      "https://static.tildacdn.com/stor3065-3634-4633-b330-643930373864/80820334.jpg",
+      "https://static.tildacdn.com/stor6536-6538-4766-b233-613230313666/92812729.jpg",
+      "https://static.tildacdn.com/stor6163-6665-4263-b564-386634626630/74378147.jpg"
+    ],
+    "price": 5000,
+    "description": "Honeycomb wall hanging made of yellow and orange glass",
+    "ID": "honeycomb",
+    "key": "honeycomb",
+    "category": "panels",
+    "slug": "honeycomb",
+    "glass-color": "yellow",
+    "measures": "21x18cm",
+    "materials": "glass, tin solder, copper foil, herbarium"
+  },
+  {
+    "name": "Dragonfly wall hanging",
+    "images": [
+      "https://static.tildacdn.com/tild6434-3637-4631-b365-376531333766/DSC_9331.jpg",
+      "https://static.tildacdn.com/tild6334-3065-4030-b662-393536633764/DSC_9139.jpg",
+      "https://static.tildacdn.com/tild6433-6138-4566-b165-363465646161/DSC_9333.jpg"
+    ],
+    "price": 10000,
+    "description": "Large dragonfly wall hanging",
+    "ID": "dragonfly",
+    "key": "dragonfly",
+    "category": "panels",
+    "slug": "dragonfly",
+    "glass-color": "iridescent",
+    "measures": "37x21cm",
+    "materials": "glass, tin solder, copper foil"
+  },
+  {
+    "name": "Spring twigs bouquet (yellow and green)",
+    "images": [
+      "https://static.tildacdn.com/stor3832-6135-4962-b062-643139343937/62238521.jpg",
+      "https://static.tildacdn.com/stor6336-6630-4539-a666-643961616466/67768987.jpg",
+      "https://static.tildacdn.com/stor6431-3937-4338-a138-643131363865/58859467.jpg"
+    ],
+    "price": 4000,
+    "description": "Set of 3 decorative twigs with glass leaves in yelow and green colors",
+    "ID": "bouquet-yellow",
+    "key": "bouquet-yellow",
+    "category": "bouquets",
+    "slug": "bouquet-yellow",
+    "glass-color": "yellow",
+    "measures": "45cm",
+    "materials": "glass, tin solder, copper foil, steel bar"
+  },
+  {
+    "name": "Spring twigs bouquet (pink and green)",
+    "images": [
+      "https://static.tildacdn.com/stor6132-3832-4134-b436-663336643934/52380461.jpg",
+      "https://static.tildacdn.com/stor6163-3930-4264-b861-343832663230/66568970.jpg",
+      "https://static.tildacdn.com/stor3834-3162-4663-a331-373032313462/18493862.jpg"
+    ],
+    "price": 4000,
+    "description": "Set of 3 decorative twigs with glass leaves in pink and green colors",
+    "ID": "bouquet-pink",
+    "key": "bouquet-pink",
+    "category": "bouquets",
+    "slug": "bouquet-pink",
+    "glass-color": "pink",
+    "measures": "45cm",
+    "materials": "glass, tin solder, copper foil, steel bar"
+  },
+  {
+    "name": "Spring twigs bouquet (blue and green)",
+    "images": [
+      "https://static.tildacdn.com/stor3635-3862-4137-a635-346539656266/96813625.jpg",
+      "https://static.tildacdn.com/stor3765-6632-4339-a666-313462373134/22037889.jpg",
+      "https://static.tildacdn.com/stor6466-3139-4464-b336-616535626237/12882660.jpg"
+    ],
+    "price": 3000,
+    "description": "Set of 3 decorative twigs with glass leaves in blue and green colors",
+    "ID": "bouquet-blue",
+    "key": "bouquet-blue",
+    "category": "bouquets",
+    "slug": "bouquet-blue",
+    "glass-color": "blue",
+    "measures": "45cm",
+    "materials": "glass, tin solder, copper foil, steel bar"
+  },
+  {
+    "name": "Mini twigs bouquet",
+    "images": [
+      "https://static.tildacdn.com/stor3164-3662-4131-a364-396130383062/21163517.jpg",
+      "https://static.tildacdn.com/stor6136-6339-4235-a163-626431323731/75228540.jpg",
+      "https://static.tildacdn.com/stor3130-3566-4564-a433-326364363838/10804188.jpg"
+    ],
+    "price": 3000,
+    "description": "Set of 3 small decorative twigs with glass leaves,mini-bouquet-green",
+    "ID": "mini-bouquet-green",
+    "key": "mini-bouquet-green",
+    "category": "bouquets",
+    "slug": "mini-bouquet-green",
+    "glass-color": "green",
+    "measures": "35cm",
+    "materials": "glass, tin solder, copper foil, steel bar"
+  },
+  {
+    "name": "Pink quartz lotus",
+    "images": [
+      "https://static.tildacdn.com/stor6137-6237-4263-b766-613339376637/50527242.jpg",
+      "https://static.tildacdn.com/stor3437-3435-4465-b135-363935326336/78121289.jpg",
+      "https://static.tildacdn.com/stor6535-6162-4737-b762-663831333632/55420335.jpg"
+    ],
+    "price": 10000,
+    "description": "3D lotus flower with rose quartz crystal and glass petails",
+    "ID": "rose-quarz-lotus",
+    "key": "rose-quarz-lotus",
+    "category": "glass-plants",
+    "slug": "rose-quarz-lotus",
+    "glass-color": "pink",
+    "measures": "d 16cm",
+    "materials": "glass, tin solder, copper foil, rose quartz crystal"
+  }
+]

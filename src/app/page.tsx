@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import { Promocodes } from './promocodes';
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch('http://localhost:3000/api/getProducts');
+  let res = await response.json();
+  console.log(res);
+
   return (
     <main className="font-serif flex flex-col items-center w-full">
+      <p>{JSON.stringify(res)}</p>
       <div
         style={{
           backgroundImage: `url("https://static.tildacdn.com/stor3363-3533-4231-b833-663035623631/27288658.jpg")`,

@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Hangings",
+    "id": "hangings",
+    "children": [
+      {
+        "name": "Suncatchers",
+        "id": "suncatchers",
+        "slug": "suncatchers"
+      },
+      {
+        "name": "Panels",
+        "id": "panels",
+        "slug": "panels"
+      }
+    ],
+    "slug": "hangings"
+  },
+  {
+    "name": "Suncatchers",
+    "id": "suncatchers",
+    "slug": "suncatchers"
+  },
+  {
+    "name": "Herbarium decor",
+    "id": "herbarium-decor",
+    "children": [
+      {
+        "name": "Flower moons",
+        "id": "flower-moons",
+        "slug": "flower-moons"
+      },
+      {
+        "name": "Frames",
+        "id": "frames",
+        "slug": "frames"
+      }
+    ],
+    "slug": "herbarium-decor"
+  },
+  {
+    "name": "Bouquets",
+    "id": "bouquets",
+    "slug": "bouquets"
+  },
+  {
+    "name": "Glass plants",
+    "id": "glass-plants",
+    "slug": "glass-plants"
+  },
+  {
+    "name": "Mirrors",
+    "id": "mirrors",
+    "slug": "mirrors"
+  },
+  {
+    "name": "Flower moons",
+    "id": "flower-moons",
+    "slug": "flower-moons"
+  },
+  {
+    "name": "Candleholders",
+    "id": "candleholders",
+    "slug": "candleholders"
+  },
+  {
+    "name": "Incense holders",
+    "id": "incenseholders",
+    "slug": "incenseholders"
+  },
+  {
+    "name": "Panels",
+    "id": "panels",
+    "slug": "panels"
+  },
+  {
+    "name": "Christmas stars",
+    "id": "christmas-stars",
+    "slug": "christmas-stars"
+  },
+  {
+    "name": "Frames",
+    "id": "frames",
+    "slug": "frames"
+  }
+]
