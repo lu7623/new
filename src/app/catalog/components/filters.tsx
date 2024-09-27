@@ -7,8 +7,9 @@ import { useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import urlBuilder from '../utils/urlBuilder';
+import { ProductResponseData } from '@/app/api/types';
 
-export default function FiltersForm({ prods }: { prods: ProductProjection[] }) {
+export default function FiltersForm({ prods }: { prods: ProductResponseData }) {
   const [filtersVisible, setFiltersVisible] = useState(false);
   const [priceRangeMin, setPriceRangeMin] = useState(minMaxPrice(prods)[0]);
   const [priceRangeMax, setPriceRangeMax] = useState(minMaxPrice(prods)[1]);

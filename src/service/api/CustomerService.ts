@@ -3,6 +3,7 @@ import { ApiService } from '@/service/api/ApiService';
 import { SessionDataStorage } from '@/controller/session/server';
 import SessionTokenCache from './client/token-storage';
 import ServerSessionDataStorage from '@/controller/session/server/ServerSessionDataStorage';
+import { BASE_URL } from './CatalogService';
 
 export type UserCredentials = { username: string; password: string };
 
@@ -94,7 +95,7 @@ interface RemoveAddressCustomer {
 
 export default class CustomerService extends ApiService {
   public async login(credentials: UserCredentials) {
-    const response = await fetch('http://localhost:3000/api/authUser', {
+    const response = await fetch(BASE_URL + '/api/authUser', {
       method: 'POST',
       body: JSON.stringify(credentials),
     });

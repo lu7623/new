@@ -1,11 +1,10 @@
-import { ProductProjection } from '@commercetools/platform-sdk';
+import { ProductResponseData } from '@/app/api/types';
 
-export default function AttributeList(prods: ProductProjection[]) {
-  const a = prods.map(
-    (p) => p.masterVariant.attributes?.filter((atr) => atr.name === 'glass-color').map((atr) => atr.value as string)
-  );
+export default function AttributeList(prods: ProductResponseData) {
+  const a = prods.map((p) => p.glassColor);
+
   let seen: string[] = [];
-  return a.flat().filter((item) => {
+  return a.filter((item) => {
     if (item) return seen.includes(item) ? false : seen.push(item);
   });
 }

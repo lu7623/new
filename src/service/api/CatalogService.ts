@@ -1,8 +1,8 @@
-import { ProductResponse, ProductResponseData } from '@/app/api/types';
+import { CategoryResponseData, ProductResponse, ProductResponseData } from '@/app/api/types';
 import { ApiService } from '@/service/api/ApiService';
 
-export const PRODUCTS_MAX_COUNT = 100;
 export const PRODUCTS_ON_PAGE = 12;
+export const BASE_URL = 'http://localhost:3000';
 
 export type ProductCard = {
   name: string;
@@ -53,6 +53,8 @@ function sortHelper(sortParam: SortParams, item1: ProductResponse, item2: Produc
       return 1;
     }
     return 0;
+  } else {
+    return 0;
   }
 }
 
@@ -61,139 +63,55 @@ function filtersHelper(filtersApplied: Filters, item: ProductResponse) {
     (filtersApplied.catID && item.category === filtersApplied.catID) ||
     (filtersApplied.color && item.glassColor === filtersApplied.color) ||
     (filtersApplied.priceFrom && item.price >= filtersApplied.priceFrom) ||
-    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo)
+    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo) ||
+    Object.keys(filtersApplied).length === 0
   );
 }
+
+function searchHelper(search: string, item: ProductResponse) {
+  return item.name.includes(search) || item.description.includes(search);
+}
+
+function paginationHelper(page: number) {
+  return [page * PRODUCTS_ON_PAGE, (page + 1) * PRODUCTS_ON_PAGE];
+}
+
 export default class CatalogService extends ApiService {
   public async getCategoriesArr() {
-    const categories = await this.apiRoot
-      .categories()
-      .get({
-        queryArgs: {
-          expand: ['parent'],
-        },
-      })
-      .execute();
-    return categories.body.results;
+    const response = await fetch(BASE_URL + '/api/getCategories');
+    let res = (await response.json()) as CategoryResponseData;
+    return res;
   }
 
-  public async getCategoryByKey(key: string) {
-    const categories = await this.apiRoot
-      .categories()
-      .withKey({ key })
-      .get({
-        queryArgs: {
-          expand: ['parent'],
-        },
-      })
-      .execute();
-    return categories.body;
+  public async getProductsByFilters(filter: Filters, sort: SortParams = 'nameASC', page = 0) {
+    const response = await fetch(BASE_URL + '/api/getProducts');
+    let res = (await response.json()) as ProductResponseData;
+    return res.filter((item) => filtersHelper(filter, item)).sort((item1, item2) => sortHelper(sort, item1, item2));
   }
 
-  public async getProductsByFilters(filter: Filters, sort: string, limit = PRODUCTS_MAX_COUNT, page = 0) {
-    const products = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          filter: [
-            filter.color ? `variants.attributes.glass-color:"${filter.color}"` : '',
-            filter.priceFrom && filter.priceTo
-              ? `variants.price.centAmount:range (${filter.priceFrom * 100} to ${filter.priceTo * 100})`
-              : '',
-            filter.catID ? `categories.id: subtree("${filter.catID}")` : '',
-          ].filter((x) => x !== ''),
-          limit: limit,
-          offset: page * PRODUCTS_ON_PAGE,
-          sort: [sort],
-        },
-      })
-      .execute();
-    return products.body.results;
+  public async getProductsOnPage(filter: Filters, sort: SortParams = 'nameASC', page = 0) {
+    const response = await fetch(BASE_URL + '/api/getProducts');
+    let res = (await response.json()) as ProductResponseData;
+    let limits = paginationHelper(page);
+
+    return res
+      .filter((item) => filtersHelper(filter, item))
+      .sort((item1, item2) => sortHelper(sort, item1, item2))
+      .slice(limits[0], limits[1]);
   }
 
-  public async getAllProductsBySearch(filter: Filters, sort: string, search?: string) {
-    const products = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          filter: [
-            filter.color ? `variants.attributes.glass-color:"${filter.color}"` : '',
-            filter.priceFrom && filter.priceTo
-              ? `variants.price.centAmount:range (${filter.priceFrom * 100} to ${filter.priceTo * 100})`
-              : '',
-          ].filter((x) => x !== ''),
-          limit: 100,
-          sort: [sort],
-          'text.en-US': search,
-        },
-      })
-      .execute();
-    return products.body.results;
+  public async getProductsBySearch(filter: Filters, sort: SortParams = 'nameASC', search: string) {
+    const response = await fetch(BASE_URL + '/api/getProducts');
+    let res = (await response.json()) as ProductResponseData;
+    return res
+      .filter((item) => searchHelper(search, item))
+      .filter((item) => filtersHelper(filter, item))
+      .sort((item1, item2) => sortHelper(sort, item1, item2));
   }
 
-  public async getDiscoutProduct(key: string) {
-    const res = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          priceCurrency: 'USD',
-          filter: ['variants.scopedPriceDiscounted:true', `key:"${key}"`],
-        },
-      })
-      .execute();
-    const product = res.body.results[0];
-
-    return product?.masterVariant.price?.discounted?.value.centAmount || undefined;
-  }
-
-  public async getDiscoutProductById(id: string) {
-    const res = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          priceCurrency: 'USD',
-          filter: ['variants.scopedPriceDiscounted:true', `id:"${id}"`],
-        },
-      })
-      .execute();
-    const product = res.body.results[0];
-
-    return product?.masterVariant.price?.discounted?.value.centAmount || undefined;
-  }
-
-  public async getDiscoutedProducts() {
-    const products = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          priceCurrency: 'USD',
-          filter: 'variants.scopedPriceDiscounted:true',
-        },
-      })
-      .execute();
-    return products.body.results;
-  }
-
-  public async getProductObjByKey(productKey: string) {
-    const product = await this.apiRoot
-      .productProjections()
-      .search()
-      .get({
-        queryArgs: {
-          filter: `key:"${productKey}"`,
-        },
-      })
-      .execute();
-    return product.body.results;
-  }
-
-  public async getProductObjById(productID: string) {
-    const responseProduct = await this.apiRoot.productProjections().withId({ ID: productID }).get().execute();
-    return responseProduct.body;
+  public async getProductById(id: string) {
+    const response = await fetch(`${BASE_URL}/api/getProductById/${id}`);
+    let res = (await response.json()) as ProductResponse | undefined;
+    return res;
   }
 }

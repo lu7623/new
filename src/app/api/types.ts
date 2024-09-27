@@ -19,6 +19,7 @@ export interface CategoryResponse {
   name: string;
   id: string;
   children?: CategoryResponse[];
+  parent?: CategoryResponse;
   slug: string;
 }
 

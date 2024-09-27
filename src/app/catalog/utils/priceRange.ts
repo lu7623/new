@@ -1,8 +1,6 @@
-import { ProductProjection } from '@commercetools/platform-sdk';
+import { ProductResponseData } from '@/app/api/types';
 
-export default function minMaxPrice(prods: ProductProjection[]) {
-  const prices = prods
-    .map((p) => (p.masterVariant.prices ? p.masterVariant.prices.map((pr) => pr.value.centAmount / 100) : 0))
-    .flat();
+export default function minMaxPrice(prods: ProductResponseData) {
+  const prices = prods.map((p) => p.price / 100);
   return [Math.min(...prices), Math.max(...prices)];
 }

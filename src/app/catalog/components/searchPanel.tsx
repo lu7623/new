@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { CategoryItem } from '../utils/categories';
 import CategoryLink from './categoryLink';
 import SearchForm from './search';
+import { CategoryResponseData } from '@/app/api/types';
 
-export default function SearchPanel({ categoriesList }: { categoriesList: CategoryItem[] }) {
+export default function SearchPanel({ categoriesList }: { categoriesList: CategoryResponseData }) {
   const cats = categoriesList.map((item) => {
     return <CategoryLink item={item} key={item.name} />;
   });

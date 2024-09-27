@@ -1,14 +1,14 @@
-import { Category, ProductProjection } from '@commercetools/platform-sdk';
 import Breadcrumbs from './breadcrumbs';
 import FiltersForm from './filters';
 import SortForm from './sort';
+import { CategoryResponse, ProductResponseData } from '@/app/api/types';
 
 export default function CatalogNavPanel({
   category,
   products,
 }: {
-  category?: Category;
-  products: ProductProjection[];
+  category?: CategoryResponse;
+  products: ProductResponseData;
 }) {
   return (
     <>

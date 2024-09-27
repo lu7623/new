@@ -19,7 +19,12 @@
   {
     "name": "Suncatchers",
     "id": "suncatchers",
-    "slug": "suncatchers"
+    "slug": "suncatchers",
+    "parent": {
+      "name": "Hangings",
+      "id": "hangings",
+      "slug": "hangings"
+    }
   },
   {
     "name": "Herbarium decor",
@@ -56,7 +61,12 @@
   {
     "name": "Flower moons",
     "id": "flower-moons",
-    "slug": "flower-moons"
+    "slug": "flower-moons",
+    "parent": {
+      "name": "Herbarium decor",
+      "id": "herbarium-decor",
+      "slug": "herbarium-decor"
+    }
   },
   {
     "name": "Candleholders",
@@ -71,7 +81,12 @@
   {
     "name": "Panels",
     "id": "panels",
-    "slug": "panels"
+    "slug": "panels",
+    "parent": {
+      "name": "Hangings",
+      "id": "hangings",
+      "slug": "hangings"
+    }
   },
   {
     "name": "Christmas stars",
@@ -81,6 +96,11 @@
   {
     "name": "Frames",
     "id": "frames",
-    "slug": "frames"
+    "slug": "frames",
+    "parent": {
+      "name": "Herbarium decor",
+      "id": "herbarium-decor",
+      "slug": "herbarium-decor"
+    }
   }
 ]

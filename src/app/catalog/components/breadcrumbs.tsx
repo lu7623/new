@@ -1,7 +1,7 @@
-import { Category } from '@commercetools/platform-sdk';
+import { CategoryResponse } from '@/app/api/types';
 import Link from 'next/link';
 
-export default function Breadcrumbs({ cat }: { cat?: Category }) {
+export default function Breadcrumbs({ cat }: { cat?: CategoryResponse }) {
   return (
     <div className="mb-4">
       <Link
@@ -15,9 +15,9 @@ export default function Breadcrumbs({ cat }: { cat?: Category }) {
         <>
           <Link
             className=" hover:cursor-pointer hover:underline hover:underline-offset-2 text-lg font-bold text-emerald-900"
-            href={`/catalog/${cat.parent.obj?.key}`}
+            href={`/catalog/${cat.parent.slug}`}
           >
-            {cat.parent?.obj?.name['en-US']}
+            {cat.parent?.name}
           </Link>
           <span className="text-lg font-bold text-emerald-900 px-2">/</span>
         </>
@@ -27,7 +27,7 @@ export default function Breadcrumbs({ cat }: { cat?: Category }) {
           className=" hover:cursor-pointer hover:underline hover:underline-offset-2 text-lg font-bold text-emerald-900"
           href={cat.slug}
         >
-          {cat.name['en-US']}
+          {cat.name}
         </Link>
       )}
     </div>

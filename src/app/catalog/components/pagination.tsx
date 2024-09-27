@@ -16,7 +16,7 @@ export default function Pagination({
   maxProds,
 }: {
   filters: Filters;
-  sort: SortParams | '';
+  sort?: SortParams;
   productsArr: ProductCard[];
   maxProds: number;
 }) {

@@ -1,26 +1,20 @@
 import { DrawAttributes } from './components/DrawAttributes';
 import { ProductNavBar } from './components/ProductNavBar';
 import Slider from './components/Slider';
-import { getProductByKey } from './components/product-functions';
+import { getProductById } from './components/product-functions';
 import AddToCartBtn from '@/app/catalog/components/addToCartBtn';
 import CartService from '@/service/api/CartService';
 
 export default async function Page({ params }: { params: { key: string } }) {
-  const res = await getProductByKey(params.key);
+  const res = await getProductById(params.key);
   const product = res?.product;
   if (!product) return <div>Getting product fails</div>;
-  const productName = product.name['en-US'];
-  const productID = product.id;
-  const productDesc = product.description ? product.description['en-US'] : 'Not created';
-  const masterVarImgs = product.masterVariant.images
-    ? product.masterVariant.images.map((item) => item.url)
-    : ['/no-image.png'];
-  const masterVarAttrs = product.masterVariant.attributes;
-  const masterVarSKU = product.masterVariant.sku || 'Not created';
-  const discount = res?.discount;
-  const masterVarPrices = product.masterVariant.prices
-    ? product.masterVariant.prices[0].value.centAmount / 100
-    : 'Priceless';
+  const productName = product.name;
+  const productDesc = product.description ? product.description : 'Not created';
+  const masterVarImgs = product.images ? product.images : ['/no-image.png'];
+
+  const discount = product.discountedPrice;
+  const masterVarPrices = product.price ? product.price / 100 : 'Priceless';
   const discountPrice = discount ? discount / 100 : undefined;
 
   const cart = new CartService().getActiveCart();
@@ -36,10 +30,7 @@ export default async function Page({ params }: { params: { key: string } }) {
         <div className=" md:w-96 mx-6">
           <p className=" font-bold text-emerald-800 ">Description:</p>
           <p className="mb-2">{productDesc}</p>
-          {masterVarAttrs && <DrawAttributes attrArr={masterVarAttrs} />}
-          <p className="my-2">
-            <span className=" font-bold text-emerald-800">SKU:</span> {masterVarSKU}
-          </p>
+          <DrawAttributes product={product} />
           {discountPrice ? (
             <p className=" mt-2">
               <span className=" font-bold text-emerald-800">Price: </span>
@@ -51,7 +42,7 @@ export default async function Page({ params }: { params: { key: string } }) {
               <span className=" font-bold text-emerald-800">Price:</span> {masterVarPrices}$
             </p>
           )}
-          <AddToCartBtn inCart={lineItemKey ? lineItemKey.quantity : 0} itemId={product.id} />
+          <AddToCartBtn inCart={lineItemKey ? lineItemKey.quantity : 0} itemId={product.ID} />
         </div>
       </section>
       <ProductNavBar />

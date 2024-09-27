@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { CategoryItem } from '../utils/categories';
+import { CategoryResponse } from '@/app/api/types';
 
-export default function CategoryLink({ item }: { item: CategoryItem }) {
+export default function CategoryLink({ item }: { item: CategoryResponse }) {
   const link = `/catalog/${item.slug}`;
   return item.children ? (
     <>

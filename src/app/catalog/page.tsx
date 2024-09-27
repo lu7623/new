@@ -11,7 +11,7 @@ export default async function Page({ searchParams }: { searchParams: { [key: str
     priceFrom: searchParams.priceFrom ? Number(searchParams.priceFrom) : undefined,
     priceTo: searchParams.priceTo ? Number(searchParams.priceTo) : undefined,
   };
-  const sort = searchParams.sortby ? (searchParams.sortby as SortParams) : '';
+  const sort = searchParams.sortby ? (searchParams.sortby as SortParams) : undefined;
   const products = await catalogService.getProductsByFilters(filters, sort);
   const pageProducts = await getPageProducts({ page: 0, filters: filters, sort: sort });
   return (
