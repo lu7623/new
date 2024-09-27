@@ -1,4 +1,4 @@
-import { CategoryResponseData, ProductResponse, ProductResponseData } from '@/app/api/types';
+import { CategoryResponse, CategoryResponseData, ProductResponse, ProductResponseData } from '@/app/api/types';
 import { ApiService } from '@/service/api/ApiService';
 
 export const PRODUCTS_ON_PAGE = 12;
@@ -59,17 +59,19 @@ function sortHelper(sortParam: SortParams, item1: ProductResponse, item2: Produc
 }
 
 function filtersHelper(filtersApplied: Filters, item: ProductResponse) {
+  if (!filtersApplied.color && !filtersApplied.priceFrom && !filtersApplied.priceTo && !filtersApplied.catID)
+    return true;
+
   return (
     (filtersApplied.catID && item.category === filtersApplied.catID) ||
     (filtersApplied.color && item.glassColor === filtersApplied.color) ||
     (filtersApplied.priceFrom && item.price >= filtersApplied.priceFrom) ||
-    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo) ||
-    Object.keys(filtersApplied).length === 0
+    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo)
   );
 }
 
 function searchHelper(search: string, item: ProductResponse) {
-  return item.name.includes(search) || item.description.includes(search);
+  return item.name.toLowerCase().includes(search) || item.description.toLowerCase().includes(search);
 }
 
 function paginationHelper(page: number) {
@@ -80,6 +82,12 @@ export default class CatalogService extends ApiService {
   public async getCategoriesArr() {
     const response = await fetch(BASE_URL + '/api/getCategories');
     let res = (await response.json()) as CategoryResponseData;
+    return res;
+  }
+
+  public async getCategoryByKey(key: string) {
+    const response = await fetch(`${BASE_URL}/api/getCategoryByKey/${key}`);
+    let res = (await response.json()) as CategoryResponse;
     return res;
   }
 

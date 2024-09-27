@@ -19,13 +19,11 @@ export default async function Page({
     priceFrom: searchParams.priceFrom ? Number(searchParams.priceFrom) : undefined,
     priceTo: searchParams.priceTo ? Number(searchParams.priceTo) : undefined,
   };
-  const sort = searchParams.sortby ? SortParams[searchParams.sortby as keyof typeof SortParams] : '';
+  const sort = searchParams.sortby ? (searchParams.sortby as SortParams) : undefined;
   const search = params.res;
-  const products = await catalogService.getAllProductsBySearch(filters, sort, search);
-  const discountedProd = await catalogService.getDiscoutedProducts();
-  const cartService = new CartService();
-  const productsInCart = (await cartService.getActiveCart()).lineItems;
-  const list = cardsInfo(products, discountedProd, productsInCart);
+  const products = await catalogService.getProductsBySearch(filters, sort, search);
+
+  const list = cardsInfo(products);
 
   return (
     <>
