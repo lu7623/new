@@ -14,6 +14,7 @@ import AddressSection from './components/addresses/addressSection';
 import CheckboxAddress from './elements/checkbox/checkbox';
 import { IMyAddress } from '@/service/api/CustomerService';
 import Label from './elements/wrapper';
+import Form from './components/form';
 
 export default function Page() {
   const router = useRouter();
@@ -130,7 +131,8 @@ export default function Page() {
     <>
       <p className={msgVisible ? `${styled}` : 'hidden'}>{msg}</p>
       <div className={style.container}>
-        <form id="formRegistr" onSubmit={handleRegistration}>
+        <Form />
+        {/* <form id="formRegistr" onSubmit={handleRegistration}>
           <h2 className="text-center uppercase text-2xl font-serif my-5 font-bold text-emerald-900">Registration</h2>
           <div className={styleColumns}>
             <div>
@@ -196,7 +198,7 @@ export default function Page() {
           >
             Register
           </button>
-        </form>
+        </form> */}
       </div>
       <div className="flex w-auto h-20 items-center justify-center my-6 ">
         <p className="font-serif text-lg text-emerald-900 mx-10">Already have an account?</p>

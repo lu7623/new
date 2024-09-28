@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const isLogged = new CustomerService().isLogged();
-  const cartProdsQty = new CartService().cartProdsQty();
+  // const cartProdsQty = new CartService().cartProdsQty();
   return (
     <html lang="en">
       <body>
-        <Navbar authorized={isLogged} qty={cartProdsQty ? cartProdsQty : 0} />
+        <Navbar authorized={isLogged} qty={0} />
         {children}
       </body>
     </html>

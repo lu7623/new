@@ -8,10 +8,9 @@ export const login = async (email: string, password: string) => {
   const customerService = new CustomerService();
   const userAuthOptions = { username: email, password: password };
   const customer = await customerService.login(userAuthOptions);
-  const cartService = new CartService();
-  await cartService.getActiveCart();
+
   const sessionStorage = new SessionDataStorage();
   const session = sessionStorage.getData();
-  session.customerId = customer.id;
+  session.token = { token: customer.token };
   sessionStorage.save(session);
 };

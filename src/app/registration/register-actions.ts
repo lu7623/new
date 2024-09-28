@@ -13,11 +13,6 @@ export const register = async (
   const res = await customerService.register(formData, formShippingAddress, formBillingAddress);
   const sessionStorage = new SessionDataStorage();
   const session = sessionStorage.getData();
-  session.customerId = res.customer.id;
+  session.token = { token: res.token };
   sessionStorage.save(session);
-  const credentials: UserCredentials = {
-    username: formData.email,
-    password: formData.password,
-  };
-  await customerService.loginAfterRegistration(credentials);
 };

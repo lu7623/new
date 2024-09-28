@@ -7,6 +7,8 @@ import { BASE_URL } from './CatalogService';
 
 export type UserCredentials = { username: string; password: string };
 
+export type UserResponse = { token: string };
+
 export type UpdateAction =
   | 'setCompanyName'
   | 'setDateOfBirth'
@@ -99,13 +101,8 @@ export default class CustomerService extends ApiService {
       method: 'POST',
       body: JSON.stringify(credentials),
     });
-    let res = await response.json();
+    let res = (await response.json()) as UserResponse;
     return res;
-  }
-
-  public async loginAfterRegistration(credentials: UserCredentials) {
-    this.apiRoot = createApiRoot(credentials);
-    return this.getCurrentCustomer();
   }
 
   public logout() {
@@ -152,117 +149,16 @@ export default class CustomerService extends ApiService {
     if (formBillingAddress.defaultBillingAddress) {
       customerDraft.defaultBillingAddress = 1;
     }
-    const apiRoot = createApiRoot();
-    const result = await apiRoot.me().signup().post({ body: customerDraft }).execute();
-    return result.body;
+    const response = await fetch(BASE_URL + '/api/register', {
+      method: 'POST',
+      body: JSON.stringify(customerDraft),
+    });
+    let res = (await response.json()) as UserResponse;
+    return res;
   }
 
   public isLogged() {
-    const { customerId } = new SessionDataStorage().getData();
-    return !!customerId;
-  }
-
-  public async updateFieldName(customer: IMyCustomer, fieldName: string, actionType: UpdateAction, value?: string) {
-    if (value) {
-      const actionArr: UpdateCustomer = {
-        action: actionType,
-        [fieldName]: value,
-      };
-      const result = await this.apiRoot
-        .me()
-        .post({
-          body: {
-            version: customer.version,
-            actions: [actionArr],
-          },
-        })
-        .execute();
-      return result.body;
-    }
-  }
-
-  public async changeAddAddress(customer: IMyCustomer, actionType: ChangeAddresAction, address: IMyAddress) {
-    if (customer.version) {
-      const myAddress: IMyAddress = {
-        id: address.id,
-        country: address.country,
-        city: address.city,
-        streetName: address.streetName,
-        postalCode: address.postalCode,
-      };
-      const actionArr: ChangeAddressCustomer = {
-        action: actionType,
-        address: myAddress,
-        addressId: myAddress.id,
-      };
-      const result = await this.apiRoot
-        .me()
-        .post({
-          body: {
-            version: customer.version,
-            actions: [actionArr],
-          },
-        })
-        .execute();
-      return result.body;
-    }
-  }
-
-  public async changeEmail(customer: IMyCustomer, actionType: ChangeEmail, value: string) {
-    const actionArr = {
-      action: actionType,
-      email: value,
-    };
-    const result = await this.apiRoot
-      .me()
-      .post({
-        body: {
-          version: customer.version,
-          actions: [actionArr],
-        },
-      })
-      .execute();
-    return result.body;
-  }
-
-  public async changePassword(customer: IMyCustomer, newPassword: string, currentPassword: string) {
-    const result = await this.apiRoot
-      .me()
-      .password()
-      .post({
-        body: {
-          version: customer.version,
-          currentPassword,
-          newPassword,
-        },
-      })
-      .execute();
-    return result.body;
-  }
-
-  public async deleteSetAddress(customer: IMyCustomer, actionType: ChangeAction, address: IMyAddress) {
-    if (customer.version) {
-      const myAddress: IMyAddress = {
-        id: address.id,
-        country: address.country,
-        city: address.city,
-        streetName: address.streetName,
-        postalCode: address.postalCode,
-      };
-      const actionArr: RemoveAddressCustomer = {
-        action: actionType,
-        addressId: myAddress.id,
-      };
-      const result = await this.apiRoot
-        .me()
-        .post({
-          body: {
-            version: customer.version,
-            actions: [actionArr],
-          },
-        })
-        .execute();
-      return result.body;
-    }
+    const { token } = new SessionDataStorage().getData();
+    return !!token;
   }
 }

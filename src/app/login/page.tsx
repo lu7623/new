@@ -4,9 +4,9 @@ import { SessionDataStorage } from '@/controller/session/server';
 import { RegisterPageButton } from './RegisterPageButton';
 
 export default function Page() {
-  const { customerId } = new SessionDataStorage().getData();
+  const { token } = new SessionDataStorage().getData();
 
-  if (customerId) redirect('/');
+  if (token) redirect('/');
 
   return (
     <>
