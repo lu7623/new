@@ -7,13 +7,13 @@ const getCharacterValidationError = (str: string) => {
 export const schema = yup.object().shape({
   firstName: yup
     .string()
-    .required('Please enter your name')
+    .required('Please enter your first name')
     .test('firstUppercase', 'First letter of first name should be uppercase', function (name: string) {
       return !!name.trim().slice(0, 1).match(/[A-Z]/)?.length;
     }),
   lastName: yup
     .string()
-    .required('Please enter your name')
+    .required('Please enter your last name')
     .test('firstUppercase', 'First letter of last name should be uppercase', function (name: string) {
       return !!name.trim().slice(0, 1).match(/[A-Z]/)?.length;
     }),
@@ -23,9 +23,9 @@ export const schema = yup.object().shape({
     .string()
     .required('Please enter your password')
     .matches(/[0-9]/, getCharacterValidationError('digit'))
-    .matches(/[a-z]/, getCharacterValidationError('lowercase'))
-    .matches(/[A-Z]/, getCharacterValidationError('special charcter'))
-    .matches(/[\W|_/g]/, getCharacterValidationError('special caracter')),
+    .matches(/[A-Za-z\^\u0000-\u007F]/, getCharacterValidationError('letter'))
+    .matches(/[\W|_/g]/, getCharacterValidationError('special caracter'))
+    .min(8, 'Password should be at least 8 charcters long'),
   confirm: yup
     .string()
     .required('Please re-type to confirm')
