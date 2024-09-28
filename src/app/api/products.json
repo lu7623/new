@@ -13,7 +13,7 @@
     "key": "clover",
     "category": "suncatchers",
     "slug": "clover",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "12x10cm",
     "materials": "glass, tin solder, copper foil, crystal beads"
   },
@@ -31,7 +31,7 @@
     "key": "fern",
     "category": "panels",
     "slug": "fern",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "25x18cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -48,7 +48,7 @@
     "key": "poppy",
     "category": "panels",
     "slug": "poppy",
-    "glass-color": "red",
+    "glassColor": "red",
     "measures": "22x16cm",
     "materials": "glass, tin solder, copper foil, labradorite"
   },
@@ -65,7 +65,7 @@
     "key": "honeycomb",
     "category": "panels",
     "slug": "honeycomb",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "21x18cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -82,7 +82,7 @@
     "key": "dragonfly",
     "category": "panels",
     "slug": "dragonfly",
-    "glass-color": "iridescent",
+    "glassColor": "iridescent",
     "measures": "37x21cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -99,7 +99,7 @@
     "key": "bouquet-yellow",
     "category": "bouquets",
     "slug": "bouquet-yellow",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -116,7 +116,7 @@
     "key": "bouquet-pink",
     "category": "bouquets",
     "slug": "bouquet-pink",
-    "glass-color": "pink",
+    "glassColor": "pink",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -133,7 +133,7 @@
     "key": "bouquet-blue",
     "category": "bouquets",
     "slug": "bouquet-blue",
-    "glass-color": "blue",
+    "glassColor": "blue",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -150,7 +150,7 @@
     "key": "mini-bouquet-green",
     "category": "bouquets",
     "slug": "mini-bouquet-green",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "35cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -167,7 +167,7 @@
     "key": "medium-heather-moon",
     "category": "flower-moons",
     "slug": "medium-heather-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 15cm, full length 34cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -184,7 +184,7 @@
     "key": "sun-mirror",
     "category": "mirrors",
     "slug": "sun-mirror",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "d 26cm",
     "materials": "glass, tin solder, copper foil, herbarium, mirror"
   },
@@ -201,7 +201,7 @@
     "key": "tiny-candleholder-white-star",
     "category": "candleholders",
     "slug": "tiny-candleholder-white-star",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "10x7x5cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -218,7 +218,7 @@
     "key": "red-star",
     "category": "christmas-stars",
     "slug": "red-star",
-    "glass-color": "red",
+    "glassColor": "red",
     "measures": "21x16cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -235,7 +235,7 @@
     "key": "pearl-star",
     "category": "christmas-stars",
     "slug": "pearl-star",
-    "glass-color": "pearl",
+    "glassColor": "pearl",
     "measures": "21x16cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -252,7 +252,7 @@
     "key": "amber-pumpkin",
     "category": "hangings",
     "slug": "amber-pumpkin",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "14x14cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -269,7 +269,7 @@
     "key": "heather-frame",
     "category": "frames",
     "slug": "heather-frame",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "10x14cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -286,7 +286,7 @@
     "key": "summer-frame",
     "category": "frames",
     "slug": "summer-frame",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 15cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -303,7 +303,7 @@
     "key": "blue-mirror",
     "category": "mirrors",
     "slug": "blue-mirror",
-    "glass-color": "blue",
+    "glassColor": "blue",
     "measures": "17x17cm",
     "materials": "glass, tin solder, copper foil, mirror"
   },
@@ -320,7 +320,7 @@
     "key": "black-mirror",
     "category": "mirrors",
     "slug": "black-mirror",
-    "glass-color": "black",
+    "glassColor": "black",
     "measures": "17x17cm",
     "materials": "glass, tin solder, copper foil, mirror"
   },
@@ -337,7 +337,7 @@
     "key": "green-mirror",
     "category": "mirrors",
     "slug": "green-mirror",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "17x17cm",
     "materials": "glass, tin solder, copper foil, mirror"
   },
@@ -354,7 +354,7 @@
     "key": "emerald-mirror",
     "category": "mirrors",
     "slug": "emerald-mirror",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "17x17cm",
     "materials": "glass, tin solder, copper foil, mirror"
   },
@@ -371,7 +371,7 @@
     "key": "large-pansies-moon",
     "category": "flower-moons",
     "slug": "large-pansies-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 18cm, full length 34cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -388,7 +388,7 @@
     "key": "large-swamp-moon",
     "category": "flower-moons",
     "slug": "large-swamp-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 18cm, full length 34cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -405,7 +405,7 @@
     "key": "fern-candleholder",
     "category": "candleholders",
     "slug": "fern-candleholder",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "10x10x10cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -422,7 +422,7 @@
     "key": "water-avens-candleholder",
     "category": "candleholders",
     "slug": "water-avens-candleholder",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "10x10x10cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -440,7 +440,7 @@
     "key": "little-sun",
     "category": "suncatchers",
     "slug": "little-sun",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "d 16cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -456,7 +456,7 @@
     "key": "blue-heart",
     "category": "suncatchers",
     "slug": "blue-heart",
-    "glass-color": "blue",
+    "glassColor": "blue",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -473,7 +473,7 @@
     "key": "red-heart",
     "category": "suncatchers",
     "slug": "red-heart",
-    "glass-color": "red",
+    "glassColor": "red",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -490,7 +490,7 @@
     "key": "lavender-heart",
     "category": "suncatchers",
     "slug": "lavender-heart",
-    "glass-color": "lilac",
+    "glassColor": "lilac",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -507,7 +507,7 @@
     "key": "light-blue-whale",
     "category": "suncatchers",
     "slug": "light-blue-whale",
-    "glass-color": "lilac",
+    "glassColor": "lilac",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -524,7 +524,7 @@
     "key": "peony",
     "category": "panels",
     "slug": "peony",
-    "glass-color": "pink",
+    "glassColor": "pink",
     "measures": "18x15cm",
     "materials": "glass, tin solder, copper foil, crystal beads"
   },
@@ -541,7 +541,7 @@
     "key": "lemons",
     "category": "hangings",
     "slug": "lemons",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "16x13cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -558,7 +558,7 @@
     "key": "garnet",
     "category": "hangings",
     "slug": "garnet",
-    "glass-color": "red",
+    "glassColor": "red",
     "measures": "12x13cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -575,7 +575,7 @@
     "key": "sunflower",
     "category": "hangings",
     "slug": "sunflower",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "24x15cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -592,7 +592,7 @@
     "key": "monstera-green-rose",
     "category": "panels",
     "slug": "monstera-green-rose",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "20x18cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -609,7 +609,7 @@
     "key": "monstera-transparent",
     "category": "panels",
     "slug": "monstera-transparent",
-    "glass-color": "iridescent",
+    "glassColor": "iridescent",
     "measures": "20x18cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -626,7 +626,7 @@
     "key": "turquoise-triquetra",
     "category": "panels",
     "slug": "turquoise-triquetra",
-    "glass-color": "turquoise",
+    "glassColor": "turquoise",
     "measures": "20x21cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -643,7 +643,7 @@
     "key": "turquoise-whale",
     "category": "suncatchers",
     "slug": "turquoise-whale",
-    "glass-color": "turquoise",
+    "glassColor": "turquoise",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, crystal bead"
   },
@@ -660,7 +660,7 @@
     "key": "medium-swamp-moon",
     "category": "flower-moons",
     "slug": "medium-swamp-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 15cm, full length 25cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -677,7 +677,7 @@
     "key": "medium-artemisia-moon",
     "category": "flower-moons",
     "slug": "medium-artemisia-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 15cm, full length 34cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -694,7 +694,7 @@
     "key": "green-cactus",
     "category": "glass-plants",
     "slug": "green-cactus",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "14x9x9cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -711,7 +711,7 @@
     "key": "mini-cactus",
     "category": "glass-plants",
     "slug": "mini-cactus",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "11x7x7cm",
     "materials": "glass, tin solder, copper foil, quartz crystals"
   },
@@ -728,7 +728,7 @@
     "key": "lepidolite-lotus",
     "category": "glass-plants",
     "slug": "lepidolite-lotus",
-    "glass-color": "pearl",
+    "glassColor": "pearl",
     "measures": "d 14cm, h 9cm",
     "materials": "glass, tin solder, copper foil, lepidolite crystal"
   },
@@ -745,7 +745,7 @@
     "key": "blue-green-wreath",
     "category": "hangings",
     "slug": "blue-green-wreath",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "d 17cm",
     "materials": "glass, tin solder, copper foil, glass cabochons"
   },
@@ -760,9 +760,9 @@
     "description": "Decorative wreath hanging with leaves and glass cabochons",
     "ID": "orange-green-wreath",
     "key": "orange-green-wreath",
-    "category": "orange",
+    "category": "hangings",
     "slug": "orange-green-wreath",
-    "glass-color": "hangings",
+    "glassColor": "orange",
     "measures": "d 17cm",
     "materials": "glass, tin solder, copper foil, glass cabochons"
   },
@@ -777,9 +777,9 @@
     "description": "Decorative wreath hanging with leaves and glass cabochons",
     "ID": "rose-green-wreath",
     "key": "rose-green-wreath",
-    "category": "pink",
+    "category": "hangings",
     "slug": "rose-green-wreath",
-    "glass-color": "hangings",
+    "glassColor": "pink",
     "measures": "d 17cm",
     "materials": "glass, tin solder, copper foil, glass cabochons"
   },
@@ -796,7 +796,7 @@
     "key": "large-delphinium-moon",
     "category": "flower-moons",
     "slug": "large-delphinium-moon",
-    "glass-color": "transparent",
+    "glassColor": "transparent",
     "measures": "d 18cm, full length 34cm",
     "materials": "glass, tin solder, copper foil, herbarium"
   },
@@ -813,7 +813,7 @@
     "key": "mushrooms-mirror",
     "category": "mirrors",
     "slug": "mushrooms-mirror",
-    "glass-color": "brown",
+    "glassColor": "brown",
     "measures": "d 14 cm, size 25x15 cm",
     "materials": "glass, tin solder, copper foil, mirror"
   },
@@ -830,7 +830,7 @@
     "key": "green-star",
     "category": "christmas-stars",
     "slug": "green-star",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "21x16cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -847,7 +847,7 @@
     "key": "blue-stars-set",
     "category": "christmas-stars",
     "slug": "blue-stars-set",
-    "glass-color": "blue",
+    "glassColor": "blue",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -864,7 +864,7 @@
     "key": "turquoise-stars-set",
     "category": "christmas-stars",
     "slug": "turquoise-stars-set",
-    "glass-color": "turquoise",
+    "glassColor": "turquoise",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -881,7 +881,7 @@
     "key": "red-yellow-stars-set",
     "category": "christmas-stars",
     "slug": "red-yellow-stars-set",
-    "glass-color": "red",
+    "glassColor": "red",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -898,7 +898,7 @@
     "key": "green-stars-set",
     "category": "christmas-stars",
     "slug": "green-stars-set",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -915,7 +915,7 @@
     "key": "pink-stars-set",
     "category": "christmas-stars",
     "slug": "pink-stars-set",
-    "glass-color": "pink",
+    "glassColor": "pink",
     "measures": "12x12cm",
     "materials": "glass, tin solder, copper foil"
   },
@@ -932,7 +932,7 @@
     "key": "bouquet-violet",
     "category": "bouquets",
     "slug": "bouquet-violet",
-    "glass-color": "violet",
+    "glassColor": "violet",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -949,7 +949,7 @@
     "key": "bouquet-light-green",
     "category": "bouquets",
     "slug": "bouquet-light-green",
-    "glass-color": "green",
+    "glassColor": "green",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -966,7 +966,7 @@
     "key": "bouquet-orange",
     "category": "bouquets",
     "slug": "bouquet-orange",
-    "glass-color": "orange",
+    "glassColor": "orange",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -983,7 +983,7 @@
     "key": "mini-bouquet-orange",
     "category": "bouquets",
     "slug": "mini-bouquet-orange",
-    "glass-color": "orange",
+    "glassColor": "orange",
     "measures": "35cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -1000,7 +1000,7 @@
     "key": "mini-bouquet-blue",
     "category": "bouquets",
     "slug": "mini-bouquet-blue",
-    "glass-color": "blue",
+    "glassColor": "blue",
     "measures": "35cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -1017,7 +1017,7 @@
     "key": "mini-bouquet-yellow",
     "category": "bouquets",
     "slug": "mini-bouquet-yellow",
-    "glass-color": "yellow",
+    "glassColor": "yellow",
     "measures": "35cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -1034,7 +1034,7 @@
     "key": "mini-bouquet-violet",
     "category": "bouquets",
     "slug": "mini-bouquet-violet",
-    "glass-color": "violet",
+    "glassColor": "violet",
     "measures": "35cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   },
@@ -1051,7 +1051,7 @@
     "key": "bouquet-turquoise",
     "category": "bouquets",
     "slug": "bouquet-turquoise",
-    "glass-color": "turquoise",
+    "glassColor": "turquoise",
     "measures": "45cm",
     "materials": "glass, tin solder, copper foil, steel bar"
   }
