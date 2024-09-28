@@ -21,6 +21,7 @@ export interface CategoryResponse {
   children?: CategoryResponse[];
   parent?: CategoryResponse;
   slug: string;
+  isSubcategory?: boolean;
 }
 
 export type CategoryResponseData = CategoryResponse[];

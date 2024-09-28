@@ -1,5 +1,6 @@
 import { CategoryResponse, CategoryResponseData, ProductResponse, ProductResponseData } from '@/app/api/types';
 import { ApiService } from '@/service/api/ApiService';
+import { filtersHelper, paginationHelper, searchHelper, sortHelper } from './helpers';
 
 export const PRODUCTS_ON_PAGE = 12;
 export const BASE_URL = 'http://localhost:3000';
@@ -23,60 +24,6 @@ export type Filters = {
 };
 
 export type SortParams = 'nameASC' | 'nameDESC' | 'priceASC' | 'priceDESC';
-
-function sortHelper(sortParam: SortParams, item1: ProductResponse, item2: ProductResponse) {
-  if (sortParam === 'nameASC') {
-    if (item1.name > item2.name) {
-      return -1;
-    } else if (item1.name < item2.name) {
-      return 1;
-    }
-    return 0;
-  } else if (sortParam === 'nameDESC') {
-    if (item1.name < item2.name) {
-      return -1;
-    } else if (item1.name > item2.name) {
-      return 1;
-    }
-    return 0;
-  } else if (sortParam === 'priceASC') {
-    if (item1.price > item2.price) {
-      return -1;
-    } else if (item1.price < item2.price) {
-      return 1;
-    }
-    return 0;
-  } else if (sortParam === 'priceDESC') {
-    if (item1.price < item2.price) {
-      return -1;
-    } else if (item1.price > item2.price) {
-      return 1;
-    }
-    return 0;
-  } else {
-    return 0;
-  }
-}
-
-function filtersHelper(filtersApplied: Filters, item: ProductResponse) {
-  if (!filtersApplied.color && !filtersApplied.priceFrom && !filtersApplied.priceTo && !filtersApplied.catID)
-    return true;
-
-  return (
-    (filtersApplied.catID && item.category === filtersApplied.catID) ||
-    (filtersApplied.color && item.glassColor === filtersApplied.color) ||
-    (filtersApplied.priceFrom && item.price >= filtersApplied.priceFrom) ||
-    (filtersApplied.priceTo && item.price <= filtersApplied.priceTo)
-  );
-}
-
-function searchHelper(search: string, item: ProductResponse) {
-  return item.name.toLowerCase().includes(search) || item.description.toLowerCase().includes(search);
-}
-
-function paginationHelper(page: number) {
-  return [page * PRODUCTS_ON_PAGE, (page + 1) * PRODUCTS_ON_PAGE];
-}
 
 export default class CatalogService extends ApiService {
   public async getCategoriesArr() {
