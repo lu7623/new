@@ -25,7 +25,7 @@ export type Filters = {
 
 export type SortParams = 'nameASC' | 'nameDESC' | 'priceASC' | 'priceDESC';
 
-export default class CatalogService extends ApiService {
+export default class CatalogService {
   public async getCategoriesArr() {
     const response = await fetch(BASE_URL + '/api/getCategories');
     let res = (await response.json()) as CategoryResponseData;

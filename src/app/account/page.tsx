@@ -1,17 +1,21 @@
 import { redirect } from 'next/navigation';
 import { CustomerInfo } from './components/customerInfo/CustomerInfo';
 import { LogoutButton } from './components/loggoutButton/LogoutButton';
-import { getUserInfo, userIsLogged } from './account-actions';
+import { CustomerService } from '@/service/api';
+import { SessionDataStorage } from '@/controller/session/server';
+import { Heading } from '@/ui/Heading';
 
 export default async function Page() {
-  const isLogged = userIsLogged();
+  const customer = new CustomerService();
+  const { token } = new SessionDataStorage().getData();
+  const isLogged = customer.isLogged();
   if (!isLogged) redirect('/login/');
-  const customer = await getUserInfo();
+  const customerData = !!token ? customer.getUserInfo(token?.token) : null;
   return (
     <>
-      <h2 className="text-center uppercase text-2xl font-serif my-5 font-bold text-emerald-900">Your Account</h2>
-      {isLogged && customer && <CustomerInfo customer={customer} />}
-      {isLogged && <LogoutButton />}
+      <Heading title="Your account" />
+      {customerData && <CustomerInfo customer={customerData} />}
+      <LogoutButton />
     </>
   );
 }

@@ -24,13 +24,16 @@ export interface IFormInput {
 }
 
 export interface IData {
-  name: string;
-  age: number;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirm: string;
   gender: string;
   country: string;
-  file: string;
+  fileStr: string;
+  street: string;
+  city: string;
+  postalCode: string;
   accept: NonNullable<boolean | undefined>;
 }

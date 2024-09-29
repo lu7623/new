@@ -1,21 +1,29 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../utils/validationSchema';
-import { IFormInput } from '../utils/types';
+import { IData, IFormInput } from '../utils/types';
 import { useState } from 'react';
 import { countriesArr } from '../utils/countries';
 import { convertBase64 } from '../utils/filesize';
 import { FormInput } from '@/ui/FormInput';
+import { registration } from '../register-actions';
+import { useRouter } from 'next/navigation';
+import { getStrength } from '../utils/getStrength';
+import { UserMessage } from '@/ui/UserMessage';
 
-export const getStrength = (n: number) => {
-  if (n < 4) return <span className=" text-red-600 font-bold">weak</span>;
-  else if (n < 8) return <span className=" text-yellow-600 font-bold">medium</span>;
-  else return <span className=" text-green-600 font-bold">strong</span>;
-};
-
-export default function Form() {
+export function RegistrationForm() {
   const [countrySuggestions, setCountrySuggestions] = useState<string[]>();
   const [passwordStrength, setPasswordStrength] = useState(0);
+  const router = useRouter();
+  const [regError, setRegError] = useState('');
+  const [regSuccess, setRegSuccess] = useState(false);
+  const [msgVisible, setMsgVisible] = useState(false);
+  const msg = regError ? regError : 'Registation successful!';
+
+  if (regSuccess)
+    setTimeout(() => {
+      router.push('/catalog');
+    }, 1000);
 
   const {
     register,
@@ -27,9 +35,10 @@ export default function Form() {
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
+
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const fileStr = data.file ? ((await convertBase64(data.file[0])) as string) : '';
-    const formData = Object.assign(
+    const formData: IData = Object.assign(
       {},
       {
         firstName: data.firstName,
@@ -40,21 +49,34 @@ export default function Form() {
         country: data.country,
         email: data.email,
         gender: data.gender,
-        file: fileStr,
+        fileStr: fileStr,
         street: data.street,
         city: data.city,
         postalCode: data.postalCode,
       }
     );
+
+    await registration(formData)
+      .then(() => {
+        setRegSuccess(true);
+        setMsgVisible(true);
+      })
+      .catch((err) => {
+        setRegError(`\u{26A0} There was an error during registration. ${err.message} \u{26A0}`);
+        setMsgVisible(true);
+      });
   };
+
   const searchCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newCountrySearch = e.target.value;
     setCountrySuggestions(
       countriesArr.filter((c) => c.toLowerCase().startsWith(newCountrySearch.trim().toLowerCase()))
     );
   };
+
   return (
     <>
+      <UserMessage message={msg} visible={msgVisible} success={regSuccess} />
       <div className="flex justify-center items-center flex-col w-screen">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-1/3 gap-6 mb-10">
           <section>

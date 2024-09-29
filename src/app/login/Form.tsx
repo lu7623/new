@@ -7,6 +7,7 @@ import { loginSchema } from './schema';
 import { useState } from 'react';
 import { FormInput } from '@/ui/FormInput';
 import { SubmitButton } from '@/ui/SubmitButton';
+import { Heading } from '@/ui/Heading';
 
 export interface IFormInput {
   email: string;
@@ -17,7 +18,6 @@ export const Form = () => {
   const [authError, setAuthError] = useState('');
   const [loginSuccess, setLogingSuccess] = useState(false);
   const [msgVisible, setMsgVisible] = useState(false);
-
   const styled = loginSuccess ? ' bg-[#c0e7b9] ' : ' bg-red-200';
   const msg = authError ? authError : 'Log in successful!';
   const {
@@ -45,12 +45,11 @@ export const Form = () => {
     <>
       <p className={msgVisible ? `${styled}` : 'hidden'}>{msg}</p>
       <div className="flex flex-col gap-5 justify-center px-6 py-5 w-80 md:w-96">
-        <h1 className="text-center uppercase mt-9 mb-5 font-serif text-emerald-900 font-bold text-2xl">Log in</h1>
+        <Heading title="Log in" />
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <FormInput id="email" title="Email" register={{ ...register('email') }} error={errors.email} />
             <FormInput id="password" title="Password" register={{ ...register('password') }} error={errors.password} />
-
             <div>
               <SubmitButton disabled={!formState.isValid} title="Log in" />
             </div>
