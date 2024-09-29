@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, FocusEventHandler } from 'react';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 export interface InputProps {
@@ -7,8 +7,9 @@ export interface InputProps {
   defaultValue?: string;
   error?: FieldError;
   register?: UseFormRegisterReturn;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
-export const FormInput: FC<InputProps> = ({ id, register, title, defaultValue = '', error }) => {
+export const FormInput: FC<InputProps> = ({ id, register, title, defaultValue = '', error, onBlur }) => {
   return (
     <>
       <div>
@@ -18,6 +19,7 @@ export const FormInput: FC<InputProps> = ({ id, register, title, defaultValue = 
         <div className="mt-2">
           <input
             id={id}
+            onBlur={onBlur}
             defaultValue={defaultValue}
             {...register}
             type="text"

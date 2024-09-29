@@ -5,6 +5,7 @@ import { IFormInput } from '../utils/types';
 import { useState } from 'react';
 import { countriesArr } from '../utils/countries';
 import { convertBase64 } from '../utils/filesize';
+import { FormInput } from '@/ui/FormInput';
 
 export const getStrength = (n: number) => {
   if (n < 4) return <span className=" text-red-600 font-bold">weak</span>;
@@ -58,37 +59,35 @@ export default function Form() {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-1/3 gap-6 mb-10">
           <section>
             <h2>Personal info</h2>
-            <div className="w-full">
-              <label className="mr-4">First Name:</label>
-              <input {...register('firstName')} className=" bg-slate-200 w-full" />
-              {errors.firstName && <p className=" text-red-700 text-xs">{errors.firstName.message}</p>}
-            </div>
-            <div className="w-full">
-              <label className="mr-4">Last Name:</label>
-              <input {...register('lastName')} className=" bg-slate-200 w-full" />
-              {errors.lastName && <p className=" text-red-700 text-xs">{errors.lastName.message}</p>}
-            </div>
+            <FormInput
+              title="First name:"
+              id="firstName"
+              register={{ ...register('firstName') }}
+              error={errors.firstName}
+            />
+            <FormInput
+              title="Last name:"
+              id="lastName"
+              register={{ ...register('lastName') }}
+              error={errors.lastName}
+            />
+            <FormInput title="Email:" id="email" register={{ ...register('email') }} error={errors.email} />
+            <FormInput
+              title="Password:"
+              id="password"
+              register={{ ...register('password') }}
+              error={errors.password}
+              onBlur={(e) => setPasswordStrength(e.target.value.length)}
+            />
 
-            <div className=" w-full">
-              <label className="mr-4">Email:</label>
-              <input {...register('email')} className=" bg-slate-200 w-full" />
-              {errors.email && <p className=" text-red-700 text-xs">{errors.email.message}</p>}
-            </div>
-            <div className=" w-full">
-              <label className="mr-4">Password:</label>
-              <input
-                {...register('password')}
-                onBlur={(e) => setPasswordStrength(e.target.value.length)}
-                className=" bg-slate-200 w-full"
-              />
-              {errors.password && <p className=" text-red-700 text-xs">{errors.password.message}</p>}
-            </div>
             {passwordStrength > 0 && <p>Password strength: {getStrength(passwordStrength)}</p>}
-            <div className="w-full">
-              <label className="mr-4">Confirm password:</label>
-              <input {...register('confirm')} className=" bg-slate-200 w-full" />
-              {errors.confirm && <p className=" text-red-700 text-xs">{errors.confirm.message}</p>}
-            </div>
+            <FormInput
+              title="Confirm password:"
+              id="confirm"
+              register={{ ...register('confirm') }}
+              error={errors.confirm}
+            />
+
             <div className="w-full">
               <label className="mr-4">Gender Selection</label>
               <select {...register('gender')}>
@@ -125,22 +124,15 @@ export default function Form() {
           </section>
           <section>
             <h2>Address</h2>
+            <FormInput title="Street:" id="street" register={{ ...register('street') }} error={errors.street} />
+            <FormInput title="City:" id="city" register={{ ...register('city') }} error={errors.city} />
+            <FormInput
+              title="Postal Code:"
+              id="postalCode"
+              register={{ ...register('postalCode') }}
+              error={errors.postalCode}
+            />
 
-            <div className="w-full">
-              <label className="mr-4">Street:</label>
-              <input {...register('street')} className=" bg-slate-200 w-full" />
-              {errors.street && <p className=" text-red-700 text-xs">{errors.street.message}</p>}
-            </div>
-            <div className="w-full">
-              <label className="mr-4">City:</label>
-              <input {...register('street')} className=" bg-slate-200 w-full" />
-              {errors.street && <p className=" text-red-700 text-xs">{errors.street.message}</p>}
-            </div>
-            <div className=" w-full">
-              <label>Postal Code:</label>
-              <input {...register('postalCode')} className=" bg-slate-200 w-full" />
-              {errors.postalCode && <p className=" text-red-700 text-xs">{errors.postalCode.message}</p>}
-            </div>
             <div className="w-full">
               <label className="mr-4">Select country:</label>
               <input {...register('country')} className=" bg-slate-200 w-full" onChange={searchCountry} />

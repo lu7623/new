@@ -4,6 +4,7 @@ import { SessionDataStorage } from '@/controller/session/server';
 import SessionTokenCache from './client/token-storage';
 import ServerSessionDataStorage from '@/controller/session/server/ServerSessionDataStorage';
 import { BASE_URL } from './CatalogService';
+import { IFormInput } from '@/app/registration/utils/types';
 
 export type UserCredentials = { username: string; password: string };
 
@@ -96,44 +97,10 @@ export default class CustomerService extends ApiService {
     return result.body;
   }
 
-  public async register(
-    formData: { [key: string]: string },
-    formShippingAddress: IAddress,
-    formBillingAddress: IAddress
-  ) {
-    const customerDraft: CustomerDraft = {
-      email: formData.email,
-      password: formData.password,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      dateOfBirth: formData.dateOfBirth,
-      addresses: [
-        {
-          streetName: formShippingAddress.streetName,
-          city: formShippingAddress.city,
-          postalCode: formShippingAddress.postalCode,
-          country: formShippingAddress.country,
-        },
-        {
-          streetName: formBillingAddress.streetName,
-          city: formBillingAddress.city,
-          postalCode: formBillingAddress.postalCode,
-          country: formBillingAddress.country,
-        },
-      ],
-      shippingAddresses: [0],
-      billingAddresses: [1],
-    };
-
-    if (formShippingAddress.defaultShippingAddress) {
-      customerDraft.defaultShippingAddress = 0;
-    }
-    if (formBillingAddress.defaultBillingAddress) {
-      customerDraft.defaultBillingAddress = 1;
-    }
+  public async register(formData: IFormInput) {
     const response = await fetch(BASE_URL + '/api/register', {
       method: 'POST',
-      body: JSON.stringify(customerDraft),
+      body: JSON.stringify(formData),
     });
     let res = (await response.json()) as UserResponse;
     return res;
