@@ -1,8 +1,7 @@
-import LoginForm from './LoginForm';
 import { redirect } from 'next/navigation';
 import { SessionDataStorage } from '@/controller/session/server';
-import { RegisterPageButton } from './RegisterPageButton';
 import { Form } from './Form';
+import { NavLink } from '@/ui/NavLink';
 
 export default function Page() {
   const { token } = new SessionDataStorage().getData();
@@ -12,7 +11,7 @@ export default function Page() {
   return (
     <>
       <Form />
-      <RegisterPageButton />
+      <NavLink href="/registration" title="Registration" />
     </>
   );
 }

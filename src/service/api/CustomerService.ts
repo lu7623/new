@@ -77,24 +77,6 @@ export interface IMyAddress {
   defaultBillingAddress?: boolean;
 }
 
-interface UpdateCustomer {
-  action: UpdateAction;
-  [x: string]: string;
-}
-
-interface ChangeAddressCustomer {
-  action: ChangeAddresAction;
-  address: IAddress;
-  addressId?: string;
-  addressKey?: string;
-}
-
-interface RemoveAddressCustomer {
-  action: ChangeAction;
-  addressId?: string;
-  addressKey?: string;
-}
-
 export default class CustomerService extends ApiService {
   public async login(credentials: UserCredentials) {
     const response = await fetch(BASE_URL + '/api/authUser', {
@@ -159,6 +141,7 @@ export default class CustomerService extends ApiService {
 
   public isLogged() {
     const { token } = new SessionDataStorage().getData();
+
     return !!token;
   }
 }
